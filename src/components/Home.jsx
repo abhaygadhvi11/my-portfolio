@@ -47,14 +47,6 @@ const Home = () => {
                 <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', alignItems: 'center' }}>
                         <span style={{ fontSize: '13px', color: '#555' }}>About</span>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <a href={`${import.meta.env.BASE_URL}Abhay_Gadhvi_Resume.pdf`} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#666', textDecoration: 'none', fontSize: '13px', fontWeight: '500', transition: 'color 0.2s' }}
-                                onMouseEnter={e => e.currentTarget.style.color = '#e8e8e8'}
-                                onMouseLeave={e => e.currentTarget.style.color = '#666'}>
-                                CV <ExternalLink size={13} />
-                            </a>
-                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 8px #4ade80', animation: 'pulse 2s infinite' }} />
-                        </div>
                     </div>
                     <p style={{ fontSize: '14.5px', color: '#999', lineHeight: 1.8, margin: 0 }}>
                         Computer engineer with a background in software development, systems design, and hardware integration. I build scalable solutions, optimize performance, and solve complex problems — fast, clean, and purposeful.
@@ -160,7 +152,6 @@ const Home = () => {
                                 <div style={{ flex: 1 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                         <span style={{ fontSize: '14px', color: '#e2e2e2', fontWeight: '500' }}>{s.title}</span>
-                                        {s.active && <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', flexShrink: 0 }} />}
                                     </div>
                                     <div style={{ fontSize: '12px', color: '#555', marginTop: '4px' }}>{s.role}</div>
                                 </div>
