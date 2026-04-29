@@ -70,15 +70,6 @@ const Home = () => {
 
                 {/* Experience & Education */}
                 <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ marginBottom: '24px' }}>
-                        <a href={`${import.meta.env.BASE_URL}Abhay_Gadhvi_Resume.pdf`} download="Abhay_Gadhvi_Resume.pdf" target="_blank" rel="noreferrer"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#e8e8e8', color: '#000', padding: '11px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '500', textDecoration: 'none', transition: 'opacity 0.2s', border: '1px solid #e8e8e8', width: '100%', justifyContent: 'center' }}
-                            onMouseEnter={e => e.currentTarget.style.opacity = 0.9}
-                            onMouseLeave={e => e.currentTarget.style.opacity = 1}
-                        >
-                            <Download size={16} /> Download Resume
-                        </a>
-                    </div>
                     <div style={{ fontSize: '13px', color: '#555', marginBottom: '20px' }}>Experience & Education</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {experience.map((e, i) => (

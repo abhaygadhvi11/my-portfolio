@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Download } from 'lucide-react';
 import Home from './components/Home';
 import ProjectPage from './components/ProjectPage';
 
@@ -33,6 +33,14 @@ const App = () => {
                 <div style={{ fontSize: '13px', color: '#555', marginTop: '1px' }}>Full Stack Developer</div>
               </div>
             </div>
+            
+            <a href={`${import.meta.env.BASE_URL}Abhay_Gadhvi_Resume.pdf`} download="Abhay_Gadhvi_Resume.pdf" target="_blank" rel="noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#e8e8e8', color: '#000', padding: '8px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: '500', textDecoration: 'none', transition: 'opacity 0.2s', border: '1px solid #e8e8e8' }}
+                onMouseEnter={e => e.currentTarget.style.opacity = 0.9}
+                onMouseLeave={e => e.currentTarget.style.opacity = 1}
+            >
+                <Download size={15} /> Resume
+            </a>
           </header>
 
           <main style={{ flex: 1 }}>
