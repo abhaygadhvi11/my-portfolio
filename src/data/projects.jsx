@@ -1,14 +1,16 @@
 import { Code2, Zap, BookOpen } from 'lucide-react';
 import React from 'react';
 
+const base = import.meta.env.BASE_URL;
+
 export const projects = [
     {
         id: "todochimp",
         title: "TodoChimp – Task Management",
         images: [
-            "/thumbnails/todochimp_1.png",
-            "/thumbnails/todochimp_2.png",
-            "/thumbnails/todochimp_3.png",
+            `${base}thumbnails/todochimp_1.png`,
+            `${base}thumbnails/todochimp_2.png`,
+            `${base}thumbnails/todochimp_3.png`,
         ],
         desc: "Full task assignment & progress tracking system with complete activity history.",
         tech: ["React", "Node.js", "PostgreSQL", "Express"],
@@ -22,9 +24,9 @@ export const projects = [
         id: "attendance-system",
         title: "Facial Recognition Attendance",
         images: [
-            "/thumbnails/attendance_1.png",
-            "/thumbnails/attendance_2.png",
-            "/thumbnails/attendance_3.png",
+            `${base}thumbnails/attendance_1.png`,
+            `${base}thumbnails/attendance_2.png`,
+            `${base}thumbnails/attendance_3.png`,
         ],
         desc: "AI-powered attendance system using facial recognition for real-time tracking.",
         tech: ["Python", "OpenCV", "FastAPI"],
@@ -38,10 +40,10 @@ export const projects = [
         id: "ai-service",
         title: "AI Service Platform",
         images: [
-            "/thumbnails/ai_service_1.png",
-            "/thumbnails/ai_service_2.png",
-            "/thumbnails/ai_service_3.png",
-            "/thumbnails/ai_service_4.png",
+            `${base}thumbnails/ai_service_1.png`,
+            `${base}thumbnails/ai_service_2.png`,
+            `${base}thumbnails/ai_service_3.png`,
+            `${base}thumbnails/ai_service_4.png`,
         ],
         desc: "Centralized AI prompt & integration platform with reusable APIs across projects.",
         tech: ["Next.js", "OpenAI", "Node.js"],
@@ -55,8 +57,8 @@ export const projects = [
         id: "content-library",
         title: "Content Library for Web Dev",
         images: [
-            "/thumbnails/contentlib_1.png",
-            "/thumbnails/contentlib_2.png",
+            `${base}thumbnails/contentlib_1.png`,
+            `${base}thumbnails/contentlib_2.png`,
         ],
         desc: "Comprehensive resource library for building and optimizing websites.",
         tech: ["React", "CSS", "JS"],
