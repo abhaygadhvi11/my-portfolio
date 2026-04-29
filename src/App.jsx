@@ -6,7 +6,7 @@ import ProjectPage from './components/ProjectPage';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/my-portfolio">
       <div style={{
         minHeight: '100vh',
         background: '#0c0c0c',
