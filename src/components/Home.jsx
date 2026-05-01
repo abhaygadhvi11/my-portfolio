@@ -2,7 +2,42 @@ import React from 'react';
 import { Github, Mail, Linkedin, ExternalLink, Phone, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
+const ProjectCard = ({ p }) => {
+    const [ref, isVisible] = useScrollReveal(0.2);
+
+    return (
+        <Link ref={ref} to={`/project/${p.id}`} className="block group no-underline active:scale-[0.98] transition-transform duration-200">
+            <div className={`h-[380px] flex flex-col bg-[#191919] hover:bg-[#1e1e1e] border border-[#2e2e2e] hover:border-[#444] rounded-2xl cursor-pointer relative overflow-hidden transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.5)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+                
+                <div className="pt-[30px] px-[30px] z-10">
+                    <div className="text-[22px] text-[#e8e8e8] font-semibold mb-2">{p.title}</div>
+                    <div className="text-[14px] text-[#888] leading-relaxed line-clamp-2">{p.desc}</div>
+                </div>
+
+                <div className="flex-1 mt-[30px] pl-[30px] relative">
+                    {(p.images?.[0] || p.image) ? (
+                        <img
+                            src={p.images?.[0] || p.image}
+                            alt={p.title}
+                            className={`block w-full h-full object-cover object-left-top rounded-tl-xl border-t border-l border-[#333] shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
+                            draggable={false}
+                        />
+                    ) : (
+                        <div className={`w-full h-full rounded-tl-xl border-t border-l border-[#333] bg-[#111] flex items-center justify-center shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
+                             style={{
+                                backgroundImage: 'linear-gradient(#1e1e1e 1px, transparent 1px), linear-gradient(90deg, #1e1e1e 1px, transparent 1px)',
+                                backgroundSize: '30px 30px'
+                             }}>
+                            {React.cloneElement(p.icon, { size: 32, color: '#e8e8e8' })}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </Link>
+    );
+};
 
 const Home = () => {
     const experience = [
@@ -80,34 +115,7 @@ const Home = () => {
             {/* ROW 2: Projects */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {projects.map((p, i) => (
-                    <Link to={`/project/${p.id}`} key={i} className="block group no-underline active:scale-[0.98] transition-transform duration-200">
-                        <div className="h-[380px] flex flex-col bg-[#191919] hover:bg-[#1e1e1e] border border-[#2e2e2e] hover:border-[#444] rounded-2xl cursor-pointer relative overflow-hidden transition-colors duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
-                            
-                            <div className="pt-[30px] px-[30px] z-10">
-                                <div className="text-[22px] text-[#e8e8e8] font-semibold mb-2">{p.title}</div>
-                                <div className="text-[14px] text-[#888] leading-relaxed line-clamp-2">{p.desc}</div>
-                            </div>
-
-                            <div className="flex-1 mt-[30px] pl-[30px] relative">
-                                {(p.images?.[0] || p.image) ? (
-                                    <img
-                                        src={p.images?.[0] || p.image}
-                                        alt={p.title}
-                                        className="block w-full h-full object-cover object-left-top rounded-tl-xl border-t border-l border-[#333] shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                                        draggable={false}
-                                    />
-                                ) : (
-                                    <div className="w-full h-full rounded-tl-xl border-t border-l border-[#333] bg-[#111] flex items-center justify-center shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                                         style={{
-                                            backgroundImage: 'linear-gradient(#1e1e1e 1px, transparent 1px), linear-gradient(90deg, #1e1e1e 1px, transparent 1px)',
-                                            backgroundSize: '30px 30px'
-                                         }}>
-                                        {React.cloneElement(p.icon, { size: 32, color: '#e8e8e8' })}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </Link>
+                    <ProjectCard p={p} key={i} />
                 ))}
             </div>
 
