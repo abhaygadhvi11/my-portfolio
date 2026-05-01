@@ -3,6 +3,13 @@ import React from 'react';
 
 const base = import.meta.env.BASE_URL;
 
+const TodoChimpLogo = (props) => (
+  <svg width={props.size || 15} height={props.size || 15} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" fill="#8B5CF6" />
+    <circle cx="12" cy="12" r="4" fill="#1a1a1a" />
+  </svg>
+);
+
 export const projects = [
     {
         id: "todochimp",
@@ -15,7 +22,12 @@ export const projects = [
         desc: "Full task assignment & progress tracking system with complete activity history.",
         tech: ["React", "Node.js", "PostgreSQL", "Express"],
         github: "https://github.com/abhaygadhvi11/REMINDER-V2-",
-        icon: <Code2 size={15} color="#666" />,
+        icon: <TodoChimpLogo />,
+        metrics: [
+            { value: "Unified", label: "Activity History" },
+            { value: "Clear", label: "Task Assignment" },
+            { value: "100%", label: "Progress Tracking" }
+        ],
         problem: "Task management tools often lack a dedicated full history log of activities or become overly convoluted. Users need a streamlined way to assign tasks and track specific activity steps without feeling overwhelmed by complex interfaces.",
         solution: "Developed a focused task tracking system where every piece of progress is logged into a unified activity history. Added clean assignment features to keep teams aligned.",
         impact: "Created a simplified workflow that ensures 100% visibility into task progression, reducing context switching and the need for external update messages."
@@ -32,6 +44,11 @@ export const projects = [
         tech: ["Python", "OpenCV", "FastAPI"],
         github: "https://github.com/abhaygadhvi11",
         icon: <Zap size={15} color="#666" />,
+        metrics: [
+            { value: "Real-Time", label: "Face Detection" },
+            { value: "FastAPI", label: "Backend Routing" },
+            { value: "Zero", label: "Buddy Punching" }
+        ],
         problem: "Manual attendance tracking in large organizations is time-consuming, prone to human error, and easy to bypass (buddy punching).",
         solution: "Engineered a real-time facial recognition pipeline using OpenCV and FastAPI, automatically identifying individuals and logging their arrival/departure times.",
         impact: "Eliminated manual tracking completely, providing a secure, touchless, and instantaneous method for recording presence with high accuracy."
@@ -49,6 +66,11 @@ export const projects = [
         tech: ["Next.js", "OpenAI", "Node.js"],
         github: "https://github.com/abhaygadhvi11",
         icon: <Code2 size={15} color="#666" />,
+        metrics: [
+            { value: "Central", label: "API Gateway" },
+            { value: "Reusable", label: "Prompt Logic" },
+            { value: "Fast", label: "Integration Time" }
+        ],
         problem: "Managing multiple AI integrations and standardizing prompt engineering across different applications was redundant and difficult to scale.",
         solution: "Built a centralized microservice and platform allowing developers to create, test, and deploy AI prompts safely via reusable API endpoints.",
         impact: "Significantly accelerated the integration of AI features into new projects, cutting down repetitive setup and creating a single source of truth for prompt logic."
@@ -64,6 +86,11 @@ export const projects = [
         tech: ["React", "CSS", "JS"],
         github: "https://github.com/abhaygadhvi11",
         icon: <BookOpen size={15} color="#666" />,
+        metrics: [
+            { value: "Curated", label: "Web Resources" },
+            { value: "Search", label: "Instant Discovery" },
+            { value: "100+", label: "Premium Links" }
+        ],
         problem: "Web developers constantly search for scattered resources, UI components, and optimization techniques across the internet.",
         solution: "Curated a comprehensive, searchable static library of hand-picked web development resources, categorized by use case and stack.",
         impact: "Provides a centralized hub for developers to quickly find verified resources, speeding up their workflow and improving code quality."

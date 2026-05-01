@@ -27,7 +27,9 @@ const App = () => {
           {/* Header */}
           <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', padding: '0 2px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'linear-gradient(135deg, #252525, #2e2e2e)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '17px', fontWeight: '600', color: '#777', border: '1px solid #2e2e2e', boxShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>A</div>
+              <div style={{ position: 'relative', width: '48px', height: '48px', borderRadius: '50%', background: 'linear-gradient(135deg, #252525, #2e2e2e)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #2e2e2e', boxShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+                <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Abhay Gadhvi" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', position: 'relative', zIndex: 1 }} onError={(e) => { e.target.style.display = 'none'; }} />
+              </div>
               <div>
                 <div style={{ fontWeight: '500', fontSize: '16px', color: '#e8e8e8' }}>Abhay Gadhvi</div>
                 <div style={{ fontSize: '13px', color: '#555', marginTop: '1px' }}>Full Stack Developer</div>

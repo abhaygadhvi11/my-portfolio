@@ -33,8 +33,7 @@ const Home = () => {
                 {/* Hero / Identity */}
                 <div style={{ ...card, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                     <div style={{ position: 'relative', width: '82px', height: '82px', borderRadius: '50%', background: 'linear-gradient(135deg, #252525, #2e2e2e)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px', fontWeight: '600', color: '#777', border: '1px solid #2e2e2e', boxShadow: '0 4px 12px rgba(0,0,0,0.5)', marginBottom: '18px' }}>
-                        <span style={{ position: 'absolute', zIndex: 0 }}>A</span>
-                        <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Abhay Gadhvi" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', position: 'relative', zIndex: 1 }} onError={(e) => e.target.style.display = 'none'} />
+                        <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Abhay Gadhvi" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', position: 'relative', zIndex: 1 }} onError={(e) => { e.target.style.display = 'none'; }} />
                     </div>
                     <h1 style={{ fontSize: '20px', color: '#e8e8e8', fontWeight: '500', margin: '0 0 8px 0' }}>Abhay Gadhvi</h1>
                     <p style={{ fontSize: '13px', color: '#888', margin: '0 0 12px 0' }}>Full Stack Developer</p>
