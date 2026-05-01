@@ -20,10 +20,8 @@ const ProjectPage = () => {
 
     return (
         <div style={{ maxWidth: '800px', margin: '0 auto', paddingBottom: '60px' }}>
-            <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#888', textDecoration: 'none', fontSize: '14px', marginBottom: '32px', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#e8e8e8'}
-                onMouseLeave={e => e.currentTarget.style.color = '#888'}>
-                <ArrowLeft size={16} /> Back to Portfolio
+            <Link to="/" className="inline-flex items-center gap-2 bg-[#141414] border border-[#2e2e2e] hover:border-[#444] hover:bg-[#1a1a1a] text-[#aaa] hover:text-[#e8e8e8] px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 mb-8 w-fit shadow-sm group">
+                <ArrowLeft size={16} className="transform group-hover:-translate-x-1 transition-transform duration-300" /> Back to Portfolio
             </Link>
 
             {/* Custom Hero Section */}
