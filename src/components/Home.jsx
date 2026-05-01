@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
+const RevealCard = ({ children, style, className }) => {
+    const [ref, isVisible] = useScrollReveal(0.15);
+    return (
+        <div 
+            ref={ref} 
+            className={`transition-all duration-700 ease-out ${className || ''} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`} 
+            style={style}
+        >
+            {children}
+        </div>
+    );
+};
+
 const ProjectCard = ({ p }) => {
     const [ref, isVisible] = useScrollReveal(0.2);
 
@@ -66,7 +79,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1.5fr] gap-3">
 
                 {/* Hero / Identity */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                     <div style={{ position: 'relative', width: '82px', height: '82px', borderRadius: '50%', background: 'linear-gradient(135deg, #252525, #2e2e2e)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px', fontWeight: '600', color: '#777', border: '1px solid #2e2e2e', boxShadow: '0 4px 12px rgba(0,0,0,0.5)', marginBottom: '18px' }}>
                         <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Abhay Gadhvi" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', position: 'relative', zIndex: 1 }} onError={(e) => { e.target.style.display = 'none'; }} />
                     </div>
@@ -75,10 +88,10 @@ const Home = () => {
                     <div style={{ display: 'inline-flex', alignItems: 'center', padding: '5px 12px', background: '#1e1e1e', border: '1px solid #333', borderRadius: '24px', fontSize: '12px', color: '#aaa', fontWeight: '500' }}>
                         3+ Years Experience
                     </div>
-                </div>
+                </RevealCard>
 
                 {/* About */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px', alignItems: 'center' }}>
                         <span style={{ fontSize: '13px', color: '#555' }}>About</span>
                     </div>
@@ -92,10 +105,10 @@ const Home = () => {
                             >{s}</span>
                         ))}
                     </div>
-                </div>
+                </RevealCard>
 
                 {/* Experience & Education */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ fontSize: '13px', color: '#555', marginBottom: '20px' }}>Experience & Education</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {experience.map((e, i) => (
@@ -108,7 +121,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </RevealCard>
 
             </div>
 
@@ -123,7 +136,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr] gap-3">
 
                 {/* Certifications (Unchanged) */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ fontSize: '13px', color: '#555', marginBottom: '20px' }}>Certifications</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', flex: 1, justifyContent: 'center' }}>
                         {[
@@ -142,10 +155,10 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </RevealCard>
 
                 {/* GitHub */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '22px' }}>
                         <span style={{ fontSize: '13px', color: '#555' }}>GitHub</span>
                         <Github size={16} color="#555" />
@@ -162,10 +175,10 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </RevealCard>
 
                 {/* Contact / Get in Touch */}
-                <div style={{ ...card, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                     <h2 style={{ fontSize: '22px', fontWeight: '500', color: '#e8e8e8', margin: '0 0 12px 0' }}>Let's work together.</h2>
                     <p style={{ fontSize: '14px', color: '#888', marginBottom: '26px', lineHeight: 1.6 }}>Currently open for new opportunities<br />and interesting projects.</p>
 
@@ -207,7 +220,7 @@ const Home = () => {
                             <Phone size={14} /> +91 9099480268
                         </a>
                     </div>
-                </div>
+                </RevealCard>
 
             </div>
         </div>
