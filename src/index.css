@@ -14,7 +14,15 @@
   color-scheme: dark;
 }
 
-html,
+html {
+  width: 100%;
+  min-height: 100%;
+  background-color: #0c0c0c;
+  /* overflow-x: clip on html prevents horizontal overflow
+     WITHOUT creating a scroll container — safe for trackpad scroll */
+  overflow-x: clip;
+}
+
 body {
   width: 100%;
   min-height: 100%;
@@ -24,9 +32,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* Prevent iOS overscroll bounce from revealing white */
-  overscroll-behavior: none;
+  /* DO NOT set overflow-x: hidden on body — it creates a scroll container
+     that breaks two-finger trackpad scrolling on Chrome (Win/Mac) */
+  overflow-x: clip;
+}
+
+/* Prevent iOS rubber-band overscroll from revealing white — mobile only */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    overscroll-behavior: none;
+  }
 }
 
 /* iOS safe area support — fills notch + home indicator areas */
