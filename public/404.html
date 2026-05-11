@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Abhay Gadhvi - Full Stack Developer</title>
+    <meta name="theme-color" content="#0c0c0c" />
+    <style>body { background: #0c0c0c; margin: 0; }</style>
+    <script>
+      // GitHub Pages SPA redirect fix.
+      // When GH Pages 404s on a deep route, this page encodes the full
+      // path into a query string and redirects to index.html.
+      // index.html then reads it and restores the route via history.replaceState.
+      var l = window.location;
+      var segmentCount = 1; // number of path segments in the repo name e.g. /my-portfolio
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
