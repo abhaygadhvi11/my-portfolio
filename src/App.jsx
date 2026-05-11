@@ -12,7 +12,6 @@ const App = () => {
         background: '#0c0c0c',
         color: '#e8e8e8',
         fontFamily: "'Geist', sans-serif",
-        padding: '20px',
         boxSizing: 'border-box',
         position: 'relative',
         display: 'flex',
@@ -22,7 +21,7 @@ const App = () => {
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, background: 'radial-gradient(ellipse at 15% 15%, rgba(255,255,255,0.018) 0%, transparent 55%), radial-gradient(ellipse at 85% 85%, rgba(255,255,255,0.012) 0%, transparent 55%)' }} />
         <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.03, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '180px 180px' }} />
 
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%', flex: 1, display: 'flex', flexDirection: 'column', padding: '16px 20px' }}>
 
           {/* Header */}
           <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', padding: '0 2px' }}>

@@ -31,12 +31,16 @@ const ProjectCard = ({ p }) => {
 
                 <div className="flex-1 mt-[30px] pl-[30px] relative">
                     {(p.images?.[0] || p.image) ? (
+                        <>
                         <img
                             src={p.images?.[0] || p.image}
                             alt={p.title}
                             className={`block w-full h-full object-cover object-left-top rounded-tl-xl border-t border-l border-[#333] shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
                             draggable={false}
                         />
+                        {/* Dark gradient fade at card bottom to eliminate white image bleed */}
+                        <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #191919)' }} />
+                        </>
                     ) : (
                         <div className={`w-full h-full rounded-tl-xl border-t border-l border-[#333] bg-[#111] flex items-center justify-center shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
                              style={{
