@@ -22,7 +22,7 @@ const ProjectCard = ({ p }) => {
 
     return (
         <Link ref={ref} to={`/project/${p.id}`} className="block group no-underline active:scale-[0.98] transition-transform duration-200">
-            <div className={`h-[380px] flex flex-col bg-[#191919] hover:bg-[#1e1e1e] border border-[#2e2e2e] hover:border-[#444] rounded-2xl cursor-pointer relative overflow-hidden transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.5)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <div className={`h-[380px] flex flex-col bg-[#191919] hover:bg-[#1e1e1e] border border-[#2e2e2e] hover:border-[#444] rounded-3xl cursor-pointer relative overflow-hidden transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.5)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
 
                 <div className="pt-[30px] px-[30px] z-10">
                     <div className="text-[22px] text-[#e8e8e8] font-semibold mb-2">{p.title}</div>
@@ -32,17 +32,17 @@ const ProjectCard = ({ p }) => {
                 <div className="flex-1 mt-[30px] pl-[30px] relative">
                     {(p.images?.[0] || p.image) ? (
                         <>
-                            <img
+                           <img
                                 src={p.images?.[0] || p.image}
                                 alt={p.title}
-                                className={`block w-full h-full object-cover object-left-top rounded-tl-xl border-t border-l border-[#333] shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
+                                className={`block w-full h-full object-cover object-left-top rounded-tl-2xl border-t border-l border-[#333] shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
                                 draggable={false}
                             />
                             {/* Dark gradient fade at card bottom to eliminate white image bleed */}
                             <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #191919)' }} />
                         </>
                     ) : (
-                        <div className={`w-full h-full rounded-tl-xl border-t border-l border-[#333] bg-[#111] flex items-center justify-center shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
+                        <div className={`w-full h-full rounded-tl-2xl border-t border-l border-[#333] bg-[#111] flex items-center justify-center shadow-[-8px_-8px_24px_rgba(0,0,0,0.5)] transform origin-bottom-right transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${isVisible ? 'scale-100' : 'scale-[0.95]'}`}
                             style={{
                                 backgroundImage: 'linear-gradient(#1e1e1e 1px, transparent 1px), linear-gradient(90deg, #1e1e1e 1px, transparent 1px)',
                                 backgroundSize: '30px 30px'
@@ -70,7 +70,7 @@ const Home = () => {
     const card = {
         background: '#191919',
         border: '1px solid #2e2e2e',
-        borderRadius: '16px',
+        borderRadius: '24px',
         padding: '22px',
         boxSizing: 'border-box',
         boxShadow: '0 1px 3px rgba(0,0,0,0.5)',
@@ -79,8 +79,8 @@ const Home = () => {
     return (
         <div className="flex flex-col gap-3">
 
-            {/* ROW 1: Hero, About, Exp/Edu */}
-            <div id="about" className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1.5fr] gap-3" style={{ scrollMarginTop: '72px' }}>
+            {/* ROW 1: Hero, About */}
+            <div id="about" className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3" style={{ scrollMarginTop: '72px' }}>
 
                 {/* Hero / Identity */}
                 <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
@@ -111,10 +111,22 @@ const Home = () => {
                     </div>
                 </RevealCard>
 
+            </div>
+
+            {/* ROW 2: Projects */}
+            <div id="projects" className="grid grid-cols-1 md:grid-cols-2 gap-3" style={{ scrollMarginTop: '72px' }}>
+                {projects.map((p, i) => (
+                    <ProjectCard p={p} key={i} />
+                ))}
+            </div>
+
+            {/* ROW 3: Experience & Education, Certifications, GitHub (3-column layout) */}
+            <div className="grid grid-cols-1 md:grid-cols-[2fr_2fr_1.2fr] gap-3" style={{ scrollMarginTop: '72px' }}>
+
                 {/* Experience & Education */}
                 <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ fontSize: '13px', color: '#555', marginBottom: '20px' }}>Experience & Education</div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1, justifyContent: 'center' }}>
                         {experience.map((e, i) => (
                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                                 <div>
@@ -127,19 +139,7 @@ const Home = () => {
                     </div>
                 </RevealCard>
 
-            </div>
-
-            {/* ROW 2: Projects */}
-            <div id="projects" className="grid grid-cols-1 md:grid-cols-2 gap-3" style={{ scrollMarginTop: '72px' }}>
-                {projects.map((p, i) => (
-                    <ProjectCard p={p} key={i} />
-                ))}
-            </div>
-
-            {/* ROW 3: Certifications, GitHub, Contact */}
-            <div id="contact" className="grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr] gap-3" style={{ scrollMarginTop: '72px' }}>
-
-                {/* Certifications (Unchanged) */}
+                {/* Certifications */}
                 <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ fontSize: '13px', color: '#555', marginBottom: '20px' }}>Certifications</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', flex: 1, justifyContent: 'center' }}>
@@ -181,52 +181,58 @@ const Home = () => {
                     </div>
                 </RevealCard>
 
-                {/* Contact / Get in Touch */}
-                <RevealCard style={{ ...card, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                    <h2 style={{ fontSize: '22px', fontWeight: '500', color: '#e8e8e8', margin: '0 0 12px 0' }}>Let's work together.</h2>
-                    <p style={{ fontSize: '14px', color: '#888', marginBottom: '26px', lineHeight: 1.6 }}>Currently open for new opportunities<br />and interesting projects.</p>
-
-                    <div style={{ display: 'flex', gap: '16px', marginBottom: '26px' }}>
-                        <a href="https://github.com/abhaygadhvi11" target="_blank" rel="noreferrer"
-                            style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
-                            onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
-                            onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
-                        >
-                            <Github size={20} />
-                        </a>
-                        <a href="https://www.linkedin.com/in/abhay-gadhvi-4937792b2" target="_blank" rel="noreferrer"
-                            style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
-                            onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
-                            onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
-                        >
-                            <Linkedin size={20} />
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gadhviabhay11@gmail.com" target="_blank" rel="noreferrer"
-                            style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
-                            onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
-                            onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
-                        >
-                            <Mail size={20} />
-                        </a>
-                    </div>
-
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gadhviabhay11@gmail.com" target="_blank" rel="noreferrer"
-                            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#e8e8e8', color: '#000', padding: '11px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '500', textDecoration: 'none', transition: 'opacity 0.2s', border: '1px solid #e8e8e8' }}
-                            onMouseEnter={e => e.currentTarget.style.opacity = 0.9}
-                            onMouseLeave={e => e.currentTarget.style.opacity = 1}
-                        >
-                            <Mail size={16} /> Get In Touch
-                        </a>
-                        <a href="tel:9099480268" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#888', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
-                            onMouseEnter={e => e.currentTarget.style.color = '#e8e8e8'}
-                            onMouseLeave={e => e.currentTarget.style.color = '#888'}>
-                            <Phone size={14} /> +91 9099480268
-                        </a>
-                    </div>
-                </RevealCard>
-
             </div>
+
+            {/* ROW 4: Contact Footer Card */}
+            <RevealCard id="contact" style={{ ...card, marginTop: '4px' }}>
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 text-center md:text-left py-4 px-2">
+                    <div>
+                        <h2 style={{ fontSize: '24px', fontWeight: '500', color: '#e8e8e8', margin: '0 0 8px 0' }}>Let's work together.</h2>
+                        <p style={{ fontSize: '14.5px', color: '#888', margin: 0, lineHeight: 1.6 }}>Currently open for new opportunities and interesting projects.</p>
+                    </div>
+
+                    <div className="flex flex-col items-center md:items-end gap-4">
+                        <div style={{ display: 'flex', gap: '16px' }}>
+                            <a href="https://github.com/abhaygadhvi11" target="_blank" rel="noreferrer"
+                                style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
+                                onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
+                                onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
+                            >
+                                <Github size={20} />
+                            </a>
+                            <a href="https://www.linkedin.com/in/abhay-gadhvi-4937792b2" target="_blank" rel="noreferrer"
+                                style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
+                                onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
+                                onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
+                            >
+                                <Linkedin size={20} />
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gadhviabhay11@gmail.com" target="_blank" rel="noreferrer"
+                                style={{ width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', transition: 'all 0.2s', textDecoration: 'none' }}
+                                onMouseEnter={e => { e.currentTarget.style.color = '#e8e8e8'; e.currentTarget.style.borderColor = '#555'; e.currentTarget.style.background = '#222'; }}
+                                onMouseLeave={e => { e.currentTarget.style.color = '#888'; e.currentTarget.style.borderColor = '#333'; e.currentTarget.style.background = 'transparent'; }}
+                            >
+                                <Mail size={20} />
+                            </a>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 items-center">
+                            <a href="tel:9099480268" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#888', textDecoration: 'none', fontSize: '13.5px', transition: 'color 0.2s' }}
+                                onMouseEnter={e => e.currentTarget.style.color = '#e8e8e8'}
+                                onMouseLeave={e => e.currentTarget.style.color = '#888'}>
+                                <Phone size={14} /> +91 9099480268
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gadhviabhay11@gmail.com" target="_blank" rel="noreferrer"
+                                style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#e8e8e8', color: '#000', padding: '10px 20px', borderRadius: '12px', fontSize: '14px', fontWeight: '500', textDecoration: 'none', transition: 'opacity 0.2s', border: '1px solid #e8e8e8' }}
+                                onMouseEnter={e => e.currentTarget.style.opacity = 0.9}
+                                onMouseLeave={e => e.currentTarget.style.opacity = 1}
+                            >
+                                <Mail size={16} /> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </RevealCard>
         </div>
     );
 };
