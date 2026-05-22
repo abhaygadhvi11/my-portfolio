@@ -10,11 +10,11 @@ const TodoChimpBento = () => {
     return (
         <div className="w-full mt-16 mb-8">
             <h3 className="text-[28px] font-semibold text-[#e8e8e8] mb-8 tracking-tight">Project Highlights</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                
+
                 {/* 1. Activity History (Spans 2 columns) */}
-                <div ref={ref1} className="md:col-span-2 rounded-[32px] bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[360px] transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
+                <div ref={ref1} className="md:col-span-2 rounded-2xl bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[360px] transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
                     <div className="mb-8 relative z-10">
                         <span className="inline-block px-4 py-1.5 bg-[#252525] rounded-full text-xs text-[#aaa] font-medium tracking-wide mb-4 border border-[#333]">
                             Action Panel
@@ -24,7 +24,7 @@ const TodoChimpBento = () => {
                             Get a complete view of every task update in one place—no scattered data, no guesswork. Build focused, effective action plans.
                         </p>
                     </div>
-                    
+
                     {/* Faux UI Graphic: Activity Log */}
                     <div className={`mt-auto bg-[#141414] rounded-t-2xl border border-[#333] border-b-0 p-6 w-[95%] shadow-2xl transform transition-transform duration-700 ease-out ${isVisible1 ? 'translate-y-4' : 'translate-y-12'}`}>
                         <div className="flex flex-col gap-4">
@@ -46,7 +46,7 @@ const TodoChimpBento = () => {
                 </div>
 
                 {/* 2. Task Assignment (Square Card) */}
-                <div ref={ref2} className="rounded-[32px] bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 relative overflow-hidden min-h-[360px] transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
+                <div ref={ref2} className="rounded-2xl bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 relative overflow-hidden min-h-[360px] transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
                     <div className="mb-8 relative z-10">
                         <span className="inline-block px-4 py-1.5 bg-[#252525] rounded-full text-xs text-[#aaa] font-medium tracking-wide mb-4 border border-[#333]">
                             Delegation
@@ -56,7 +56,7 @@ const TodoChimpBento = () => {
                             Streamline your team's workflow and prevent bottlenecks.
                         </p>
                     </div>
-                    
+
                     {/* Faux UI Graphic: Assignment Tags */}
                     <div className={`absolute bottom-10 left-10 right-10 flex flex-col gap-3 transform transition-transform duration-700 ease-out ${isVisible2 ? 'scale-[1.03]' : 'scale-95'}`}>
                         <div className="bg-[#222] rounded-xl p-4 border border-[#333] shadow-lg flex justify-between items-center relative overflow-hidden">
@@ -72,7 +72,7 @@ const TodoChimpBento = () => {
                 </div>
 
                 {/* 3. Progress Analytics (Wide Card) */}
-                <div ref={ref3} className="md:col-span-3 rounded-[32px] bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center justify-between overflow-hidden transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
+                <div ref={ref3} className="md:col-span-3 rounded-2xl bg-[#1a1a1a] border border-[#2e2e2e] p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center justify-between overflow-hidden transition-colors duration-300 hover:border-[#444] hover:bg-[#1c1c1c]">
                     <div className="flex-1 min-w-[280px]">
                         <span className="inline-block px-4 py-1.5 bg-emerald-900/30 text-emerald-400 border border-emerald-800/50 rounded-full text-xs font-medium tracking-wide mb-4">
                             Visibility, Visibility, Visibility
@@ -82,10 +82,10 @@ const TodoChimpBento = () => {
                             This AI-powered pipeline view reveals where the most progress is concentrated, helping your team make smarter decisions.
                         </p>
                     </div>
-                    
+
                     {/* Faux UI Graphic: Progress Chart */}
                     <div className="flex-1 w-full flex justify-end">
-                        <div className={`bg-[#141414] border border-[#333] p-6 rounded-[24px] w-full max-w-md shadow-2xl flex flex-col gap-6 transform transition-transform duration-700 ease-out ${isVisible3 ? '-translate-x-2' : 'translate-x-4'}`}>
+                        <div className={`bg-[#141414] border border-[#333] p-6 rounded-2xl w-full max-w-md shadow-2xl flex flex-col gap-6 transform transition-transform duration-700 ease-out ${isVisible3 ? '-translate-x-2' : 'translate-x-4'}`}>
                             {[
                                 { label: "Frontend Tasks", val: "85%", w: "85%", color: "bg-emerald-500" },
                                 { label: "Backend Integration", val: "60%", w: "60%", color: "bg-blue-500" },
@@ -97,8 +97,8 @@ const TodoChimpBento = () => {
                                         <span className="text-[14px] text-[#e8e8e8] font-bold">{bar.val}</span>
                                     </div>
                                     <div className="h-2 w-full bg-[#222] rounded-full overflow-hidden">
-                                        <div 
-                                            className={`h-full ${bar.color} rounded-full relative transition-all duration-1000 ease-out`} 
+                                        <div
+                                            className={`h-full ${bar.color} rounded-full relative transition-all duration-1000 ease-out`}
                                             style={{ width: isVisible3 ? bar.w : '0%', transitionDelay: `${isVisible3 ? i * 200 : 0}ms` }}
                                         >
                                             <div className="absolute top-0 right-0 bottom-0 left-0 bg-white/20"></div>

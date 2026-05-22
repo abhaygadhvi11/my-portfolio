@@ -15,17 +15,17 @@ const ContentLibBento = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
+
                 {/* Hero Feature: Curated Discovery */}
-                <div ref={ref1} className="col-span-1 md:col-span-2 rounded-[32px] bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col relative overflow-hidden">
+                <div ref={ref1} className="col-span-1 md:col-span-2 rounded-2xl bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col relative overflow-hidden">
                     <div className="absolute inset-0 bg-blue-500/5 blur-[100px] pointer-events-none"></div>
-                    
+
                     <div className="flex-1 flex items-center justify-center min-h-[300px] w-full mb-8 relative">
                         {/* Faux UI: Search & Filter Layout */}
                         <div className={`w-full max-w-md bg-[#0a0a0a] border border-[#333] rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden shadow-2xl transition-all duration-700 ease-out ${isVisible1 ? 'scale-100 opacity-100' : 'scale-95 opacity-50'}`}>
                             {/* Background Grid */}
                             <div className="absolute inset-0 bg-[radial-gradient(#222_1px,transparent_1px)] [background-size:12px_12px] opacity-40"></div>
-                            
+
                             {/* Search Bar */}
                             <div className={`w-full h-12 bg-[#141414] border border-[#444] rounded-xl flex items-center px-4 gap-3 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] relative z-10 transition-colors duration-700 delay-500 ${isVisible1 ? 'border-blue-500/50' : ''}`}>
                                 <Search size={18} className={`transition-colors duration-700 delay-500 ${isVisible1 ? 'text-blue-400' : 'text-[#888]'}`} />
@@ -34,7 +34,7 @@ const ContentLibBento = () => {
                                 </div>
                                 {isVisible1 && <span className="w-1.5 h-4 bg-blue-500 ml-1 animate-pulse"></span>}
                             </div>
-                            
+
                             {/* Category Pills */}
                             <div className={`flex gap-2 flex-wrap relative z-10 transition-all duration-700 delay-300 ${isVisible1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                                 {['UI Kits', 'Typography', 'Animations', 'Icons'].map((tag, i) => (
@@ -43,7 +43,7 @@ const ContentLibBento = () => {
                                     </div>
                                 ))}
                             </div>
-                            
+
                             {/* Masonry Mock */}
                             <div className="grid grid-cols-2 gap-3 mt-2 relative z-10">
                                 {/* Card 1 */}
@@ -83,9 +83,9 @@ const ContentLibBento = () => {
                 </div>
 
                 {/* Secondary Feature: Bookmarking */}
-                <div ref={ref2} className="col-span-1 rounded-[32px] bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col relative overflow-hidden">
+                <div ref={ref2} className="col-span-1 rounded-2xl bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[80px] pointer-events-none"></div>
-                    
+
                     <div className="flex-1 flex flex-col justify-end min-h-[250px] w-full mb-8">
                         {/* Faux UI: Saved Items */}
                         <div className="w-full bg-[#1a1a1a] border border-[#333] rounded-2xl p-4 shadow-xl flex flex-col gap-3 relative overflow-hidden">
@@ -115,9 +115,9 @@ const ContentLibBento = () => {
                 </div>
 
                 {/* Third Feature: Complete Overview */}
-                <div ref={ref3} className="col-span-1 md:col-span-3 rounded-[32px] bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                <div ref={ref3} className="col-span-1 md:col-span-3 rounded-2xl bg-[#141414] border border-[#2e2e2e] p-8 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
                     <div className="absolute inset-0 bg-purple-500/5 blur-[100px] pointer-events-none"></div>
-                    
+
                     <div className="flex-1 relative z-10 order-2 md:order-1">
                         <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
                             <LayoutGrid className="text-purple-400" size={24} />
