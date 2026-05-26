@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Download, ArrowLeft } from 'lucide-react';
+import { Download, ArrowLeft, FileText } from 'lucide-react';
 import Home from './components/Home';
 import ProjectPage from './components/ProjectPage';
+import Resume from './components/Resume';
 
 const AppInner = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,7 @@ const AppInner = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project/:id" element={<ProjectPage />} />
+            <Route path="/resume" element={<Resume />} />
           </Routes>
         </main>
 
