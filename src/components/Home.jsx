@@ -90,7 +90,7 @@ const Home = () => {
                     <h1 style={{ fontSize: '20px', color: '#e8e8e8', fontWeight: '500', margin: '0 0 8px 0' }}>Abhay Gadhvi</h1>
                     <p style={{ fontSize: '13px', color: '#888', margin: '0 0 12px 0' }}>Full Stack Developer</p>
                     <div style={{ display: 'inline-flex', alignItems: 'center', padding: '5px 12px', background: '#1e1e1e', border: '1px solid #333', borderRadius: '24px', fontSize: '12px', color: '#aaa', fontWeight: '500' }}>
-                        3+ Years Experience
+                        2+ Years Experience
                     </div>
                 </RevealCard>
 
