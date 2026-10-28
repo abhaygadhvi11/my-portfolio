@@ -1,59 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text x='50' y='65' font-size='70' font-weight='bold' fill='%23fff' text-anchor='middle' font-family='Arial'>AG</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0c0c0c" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="description" content="Full Stack Developer | React, Node.js, PostgreSQL | Building scalable web applications and solving complex problems." />
-    <meta name="keywords" content="full stack developer, react, node.js, web development, portfolio" />
-    <meta name="author" content="Abhay Gadhvi" />
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Abhay Gadhvi - Full Stack Developer" />
-    <meta property="og:description" content="Full Stack Developer specialized in React, Node.js, and modern web technologies. Building scalable applications and solving complex problems." />
-    <meta property="og:url" content="https://abhaygardhvi.com" />
-    <meta property="og:site_name" content="Abhay Gadhvi Portfolio" />
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Abhay Gadhvi - Full Stack Developer" />
-    <meta name="twitter:description" content="Full Stack Developer specialized in React, Node.js, and modern web technologies." />
-    
-    <title>Abhay Gadhvi - Full Stack Developer</title>
-    <!-- GitHub Pages SPA routing fix: reads redirect from 404.html -->
-    <script>
-      (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-        // Also handle the ?p= query string redirect from 404.html
-        var l = window.location;
-        if (l.search && l.search[1] === 'p') {
-          var decoded = l.search.slice(1).split('&').reduce(function(s, v) {
-            var k = v.split('=')[0];
-            var val = v.split('=').slice(1).join('=').replace(/~and~/g, '&');
-            if (k === 'p') s.pathname = '/' + val;
-            else if (k === 'q') s.search = '?' + val;
-            return s;
-          }, { search: '' });
-          window.history.replaceState(
-            null, null,
-            l.pathname.split('/').slice(0, 2).join('/') +
-            decoded.pathname + decoded.search + l.hash
-          );
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text x='50' y='65' font-size='70' font-weight='bold' fill='%23fff' text-anchor='middle' font-family='Arial'>AG</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0c0c" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description"
+    content="Full Stack Developer | React, Node.js, PostgreSQL | Building scalable web applications and solving complex problems." />
+  <meta name="keywords" content="full stack developer, react, node.js, web development, portfolio" />
+  <meta name="author" content="Abhay Gadhvi" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Abhay Gadhvi - Full Stack Developer" />
+  <meta property="og:description"
+    content="Full Stack Developer specialized in React, Node.js, and modern web technologies. Building scalable applications and solving complex problems." />
+  <meta property="og:url" content="https://abhaygadhvi11.github.io/my-portfolio/" />
+  <meta property="og:site_name" content="Abhay Gadhvi Portfolio" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abhay Gadhvi - Full Stack Developer" />
+  <meta name="twitter:description"
+    content="Full Stack Developer specialized in React, Node.js, and modern web technologies." />
+
+  <title>Abhay Gadhvi - Full Stack Developer</title>
+  <!-- GitHub Pages SPA routing fix: reads redirect from 404.html -->
+  <script>
+    (function () {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+      // Also handle the ?p= query string redirect from 404.html
+      var l = window.location;
+      if (l.search && l.search[1] === 'p') {
+        var decoded = l.search.slice(1).split('&').reduce(function (s, v) {
+          var k = v.split('=')[0];
+          var val = v.split('=').slice(1).join('=').replace(/~and~/g, '&');
+          if (k === 'p') s.pathname = '/' + val;
+          else if (k === 'q') s.search = '?' + val;
+          return s;
+        }, { search: '' });
+        window.history.replaceState(
+          null, null,
+          l.pathname.split('/').slice(0, 2).join('/') +
+          decoded.pathname + decoded.search + l.hash
+        );
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
